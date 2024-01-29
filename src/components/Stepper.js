@@ -9,30 +9,26 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import FirstPage from "./FirstPage";
 import SecondPage from "./SecondPage";
-
+import ThirdPage from "./ThirdPage";
 
 const steps = ['USER INFORMATION', 'ADDRESS DETAILS', 'THANK YOU'];
 
 export default function HorizontalLinearStepper() {
-  const [activeStep, setActiveStep] =useState(0);
+  const [activeStep, setActiveStep] = useState(0);
 
   // const[userdata,setuserdata]=useState([])
   // const[finaldata,setfinaldata]=useState([]);
-  
+
 
   const handleNext = () => {
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-   
+
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
-
-   
-
-  
 
   const handleReset = () => {
     setActiveStep(0);
@@ -44,8 +40,8 @@ export default function HorizontalLinearStepper() {
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
-          
-         
+
+
           return (
             <Step key={label} {...stepProps}>
               <StepLabel {...labelProps}>{label}</StepLabel>
@@ -56,7 +52,7 @@ export default function HorizontalLinearStepper() {
       {activeStep === steps.length ? (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
-          <h2>DATA ADDED SUCCESSFULLY</h2>
+            <h2>DATA ADDED SUCCESSFULLY</h2>
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Box sx={{ flex: '1 1 auto' }} />
@@ -65,24 +61,25 @@ export default function HorizontalLinearStepper() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          {activeStep===0 &&<FirstPage></FirstPage>}
-           {activeStep===1 && <SecondPage></SecondPage>}
-          
+          {activeStep === 0 && <FirstPage></FirstPage>}
+          {activeStep === 1 && <SecondPage></SecondPage>}
+          {activeStep === 2 && <ThirdPage/>}
+
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Button
               color="inherit"
-              disabled={activeStep === 0 && activeStep===2}
+              disabled={activeStep === 0 && activeStep === 2}
               onClick={handleBack}
               sx={{ mr: 1 }}
             >
               Back
             </Button>
-           
-            
+
+
 
             <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? 'ye'  : 'Next'}
-             
+              {activeStep === steps.length - 1 ? '' : 'Next'}
+
             </Button>
           </Box>
         </React.Fragment>
