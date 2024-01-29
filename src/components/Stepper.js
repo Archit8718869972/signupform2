@@ -16,8 +16,8 @@ const steps = ['USER INFORMATION', 'ADDRESS DETAILS', 'THANK YOU'];
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] =useState(0);
 
-  const[userdata,setuserdata]=useState([])
-  const[finaldata,setfinaldata]=useState([]);
+  // const[userdata,setuserdata]=useState([])
+  // const[finaldata,setfinaldata]=useState([]);
   
 
   const handleNext = () => {
